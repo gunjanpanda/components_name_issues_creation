@@ -12,7 +12,7 @@ headers = {
 for index,row in df.iterrows():
     summary_text = row['Customer_name']
     component_text = row['Components']
-    description_text = input("Enter description for summary: ")+summary_text
+    description_text = input("Enter description for summary: ")
     payload = json.dumps(
         {
             "fields": {
@@ -30,7 +30,7 @@ for index,row in df.iterrows():
                             "content":[
                                 {
                             "type": "text",
-                            "text": description_text
+                            "text": description_text+summary_text
                         }
 
                     ]
