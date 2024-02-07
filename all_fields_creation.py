@@ -12,7 +12,7 @@ headers = {
 for index,row in df.iterrows():
     summary_text = row['Customer_name']
     component_text = row['Components']
-    description_text = input("Enter description: \n")
+    description_text = "description for user: "+summary_text
     payload = json.dumps(
         {
             "fields": {
