@@ -10,7 +10,7 @@ headers = {
     "Content-Type": "application/json"
 }
 for index,row in df.iterrows():
-    summary_text = row['Customer_name']
+    summary_text = row['Components'].split('-',1)[-1].strip()
     component_text = row['Components']
     description_text = "description for user: "+summary_text
     payload = json.dumps(
@@ -20,7 +20,7 @@ for index,row in df.iterrows():
                 {
                     "key": "BUL"
                 },
-                "summary": summary_text + "750 UP7 IF04 Patch",
+                "summary": summary_text + " - 750 UP7 IF04 Patch",
                 "description": {
                     "type": "doc",
                     "version": 1,
@@ -52,5 +52,5 @@ for index,row in df.iterrows():
         }
     )
 
-    response = requests.post(url,headers=headers,data=payload,auth=("gunjanpnd8@gmail.com","ATATT3xFfGF0f-zAUKOjgHqRXOHnjJStKfjsl5HDV4dqbOw8qaN5VDQXPsxPjIMItmjLYI8_mr37P9AWH3UO5lB4erucUz_WdsMpXypZ7fO9jlAc_N89KoslAL3yXER-z4boRPsmawjEl-5SVsaRz-tZcyD6OSHmGyTapTz1RX3Bd9XeVSZ3TMQ=01028EBD"))
+    response = requests.post(url,headers=headers,data=payload,auth=("gunjanpnd8@gmail.com","ATATT3xFfGF0HrJlPBM0H_kd8gLkNffl_S59uHu-fe17arf28_Y0grU_DbyZnVcYWpNG84zKgXJUaTpB4LGTK02flX9nRONlLvPsYv4Dsn-TjqGjcCTblVk10T4GGPhocf8vJ-PVeBXV8C6QbLZ0oSAp0FtiDHarOFORX032XKq9YrvwSagpaWE=B47F5D88"))
     print(response.text)
